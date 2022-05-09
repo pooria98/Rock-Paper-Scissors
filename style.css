@@ -8,9 +8,8 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #09203f 0%, #537895 100%);
+    background: linear-gradient(to bottom, #09203f, #537895);
     min-height: 100vh;
-    overflow: hidden;
 }
 
 h1 {
@@ -100,4 +99,41 @@ h1 {
 .game-alert.show ~ .darken {
     background-color: rgba(0, 0, 0, 0.7);
     visibility: visible;
+}
+
+.storageBtns {
+    margin: 2rem auto;
+    padding-top: 1rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-top: 2px solid gray;
+}
+
+#save {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #00b800;
+    color: white;
+    cursor: pointer;
+}
+
+#save:hover {
+    background-color: green;
+}
+
+#clear {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#clear:hover {
+    background-color: #d30000;
 }

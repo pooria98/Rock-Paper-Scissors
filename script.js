@@ -10,8 +10,23 @@ const playerChoiceElement = document.getElementById('playerChoiceElement');
 const computerChoiceElement = document.getElementById('computerChoiceElement');
 const result = document.getElementById('result');
 
-let userScore = 0;
-let computerScore = 0;
+const saveBtn = document.getElementById('save');
+const clearBtn = document.getElementById('clear');
+
+let userScore = JSON.parse(localStorage.getItem('user score'));
+let computerScore = JSON.parse(localStorage.getItem('pc score'));
+
+if (userScore == null) {
+    userScore = 0;
+} else {
+    userScoreElement.innerText = userScore;
+}
+
+if (computerScore == null) {
+    computerScore = 0;
+} else {
+    computerScoreElement.innerText = computerScore;
+}
 
 function computerChoice() {
     return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
@@ -147,3 +162,17 @@ scissors.addEventListener("click", function () {
     computerScoreElement.innerText = computerScore;
 });
 
+saveBtn.addEventListener("click", function(){
+    localStorage.setItem('user score', JSON.stringify(userScore));
+    localStorage.setItem('pc score', JSON.stringify(computerScore));
+    alert('scores saved');
+});
+
+clearBtn.addEventListener("click", function(){
+    localStorage.clear();
+    alert('scores reset');
+    computerScore = 0;
+    userScore = 0;
+    userScoreElement.innerText = userScore;
+    computerScoreElement.innerText = computerScore;
+});
